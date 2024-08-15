@@ -1,7 +1,7 @@
 package com.springmongo.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,9 +34,9 @@ public class StudentServiceImpl implements StudentServices{
 	}
 
 	@Override
-	public Optional<Student> deleteStudent(String id) {
+	public void deleteStudent(String id) {
 		repo.deleteById(id);
-		return null;
+		//return null;
 	}
 
 	@Override

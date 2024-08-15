@@ -1,15 +1,30 @@
 package com.springmongo.entity;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.validation.constraints.NotBlank;
 
 @Document(collection = "Students")
 public class Student {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
+	@Column(length = 50, nullable =false)
+	@Length(min=3, max=20)
+	@NotBlank(message = "Student name must not be empty")
 	private String studentName;
+	@Column(length = 200, nullable =false)
+	@Length(min=10, max=50)
 	private String studentAddress;
+	@Column(length = 11, nullable =false, unique = true)
+	@Length(min=10, max=12)
+	@NotBlank(message = "Student mobile must not be empty")
 	private String mobile;
 	public Student(String id, String studentName, String studentAddress, String mobile) {
 		super();

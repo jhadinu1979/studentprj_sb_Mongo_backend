@@ -1,7 +1,7 @@
 package com.springmongo.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public interface StudentServices {
 
 	public List<Student> listAllStudents();
 
-	public Optional<Student> deleteStudent(String id);
+	public void deleteStudent(String id);
 
 	public Student searchStudentById(String id);
 	
